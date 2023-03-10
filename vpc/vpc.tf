@@ -1,5 +1,5 @@
 resource "aws_vpc" "vpc" {
-  cidr_block = "192.168.0.0/16"
+  cidr_block = var.vpc_cidr
   instance_tenancy = "default"
   enable_dns_hostnames = true
 
@@ -75,7 +75,7 @@ resource "aws_route_table_association" "public_subnet_route_association" {
   route_table_id = aws_route_table.public_route_table.id
 }
 
-# resource "aws_route_table_association" "private_subnet_route_associations" {
-#   count = var.private_subnet_number
-#   subnet_id = aws_subnet.private_subnets[count.index].id
-# }
+resource "aws_route_table_association" "private_subnet_route_associations" {
+  count = var.private_subnet_number
+  subnet_id = aws_subnet.private_subnets[count.index].id
+}

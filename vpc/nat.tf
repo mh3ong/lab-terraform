@@ -24,16 +24,6 @@ resource "aws_security_group" "nat-sg" {
     self = false
   },{
     cidr_blocks = ["0.0.0.0/0"]
-    description = "SSM allow"
-    from_port   = 0
-    to_port     = 443
-    protocol    = "tcp"
-    ipv6_cidr_blocks = []
-    prefix_list_ids = []
-    security_groups = []
-    self = false
-  },{
-    cidr_blocks = ["0.0.0.0/0"]
     description = "SSH allow"
     from_port   = 0
     to_port     = 22

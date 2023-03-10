@@ -3,6 +3,11 @@ variable "vpc_name" {
   default = "mhsong-vpc"
 }
 
+variable "vpc_cidr" {
+  type = string
+  default = "192.168.0.0/16"
+}
+
 variable "public_subnet_number" {
   description = "public subnet number"
   type = number
