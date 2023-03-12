@@ -1,5 +1,5 @@
 provider "aws" {
-  #Tokyo region
+  #Seoul region
   region  = "ap-northeast-2"
   profile = "ddpslab"
 }
