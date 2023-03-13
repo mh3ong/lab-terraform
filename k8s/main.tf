@@ -22,6 +22,10 @@ resource "aws_security_group" "cluster_sg" {
     to_port          = 0
   }]
   vpc_id = var.vpc.id
+
+  tags = {
+    "Name" = "${var.cluster_prefix}-cluster-sg"
+  }
 }
 
 module "master_node" {

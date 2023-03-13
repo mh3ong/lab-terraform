@@ -20,11 +20,6 @@ resource "aws_security_group" "nat-sg" {
     security_groups  = []
     self             = false
   }]
-  vpc_id = aws_vpc.vpc.id
-
-  tags = {
-    "Name" = "${var.vpc_name}-nat-instance-sg"
-  }
 
   egress = [{
     cidr_blocks      = ["0.0.0.0/0"]
@@ -37,6 +32,11 @@ resource "aws_security_group" "nat-sg" {
     security_groups  = []
     self             = false
   }]
+  vpc_id = aws_vpc.vpc.id
+
+  tags = {
+    "Name" = "${var.vpc_name}-nat-instance-sg"
+  }
 }
 
 resource "aws_instance" "NAT-Instance" {
